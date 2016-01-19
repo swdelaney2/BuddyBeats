@@ -29,6 +29,10 @@ class SongsController < ApplicationController
   end
 
   def show
+    @songs = []
+    Song.where(playlist_id: session[:random_hex]).find_each do |inc|
+      @songs.push(inc)
+    end
   end
 
   def update

@@ -22,6 +22,11 @@ class PlaylistsController < ApplicationController
   def show
     @playlist = Playlist.find_by(random_hex: params[:random_hex])
     if @playlist
+      session[:playlist_title] = @playlist.title
+      session[:playlist_description] = @playlist.description
+      session[:random_hex] = @playlist.random_hex
+
+      redirect_to '/songs/show'
       # render json: @playlist, status: :ok
     else
       render json: @playlist.errors, status: :unprocessable_entity

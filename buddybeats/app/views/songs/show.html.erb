@@ -1,2 +1,13 @@
-<h1>Songs#show</h1>
-<p>Find me in app/views/songs/show.html.erb</p>
+<h1><%= @playlist_title = session[:playlist_title] %></h1>
+<em><%= @playlist_description = session[:playlist_description] %></em>
+<% @random = session[:random_hex] %>
+
+<p>
+  <ol>
+<% @songs.each do |inc| %>
+
+<li><%= inc.title %></li>
+<% end %>
+</ol>
+<p>
+<a href=/songs/search/<%= @random %>>Add song to playlist</a>
