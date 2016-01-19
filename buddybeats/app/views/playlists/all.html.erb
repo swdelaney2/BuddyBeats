@@ -1,0 +1,9 @@
+<h1>All Playlists</h1>
+
+
+
+
+<% @playlists.each do |inc| %>
+
+<li>Playlist Title: <a href=/playlists/<%= inc.random_hex %>><%= inc.title %></a></li>
+<% end %>

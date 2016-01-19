@@ -25,9 +25,13 @@ Rails.application.routes.draw do
 
 
   get 'playlists/mylists', to: 'playlists#mylists'
+  get 'playlists/all', to: 'playlists#all'
+
   get '/playlists/new', to: 'playlists#new'
 
   get '/playlists/:random_hex', to: 'playlists#show'
+
+  get '/sessions/destroy', to: 'sessions#destroy'
 
 
 

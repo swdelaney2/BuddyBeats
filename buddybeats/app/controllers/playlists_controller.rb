@@ -19,6 +19,17 @@ class PlaylistsController < ApplicationController
     end
   end
 
+  def all
+    @playlists = []
+    Playlist.where(public: true).find_each do |inc|
+      @playlists.push(inc)
+    end
+    if @playlists
+    else
+      render json: @playlist.errors, status: :unprocessable_entity
+    end
+  end
+
   def show
     @playlist = Playlist.find_by(random_hex: params[:random_hex])
     if @playlist
