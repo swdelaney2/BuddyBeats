@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get 'songs/update'
 
-  get 'songs/search', to: 'songs#search'
+  get 'songs/search/:random_hex', to: 'songs#search'
 
 
   # get 'playlists/index'

@@ -24,6 +24,10 @@ class SongsController < ApplicationController
     @song = Song.new
   end
 
+  def search
+    @song = Song.new
+  end
+
   def show
   end
 

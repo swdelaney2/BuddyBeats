@@ -1,6 +1,5 @@
-
-
 <h1>testing search functionality</h1>
+<%= @random = params[:random_hex] %>
 
 <form id="search_form" method="get">
   <input type="text" name="keyword" class="searchbox" placeholder="Search YouTube"></input>
@@ -30,12 +29,27 @@ searchYouTube("britney")
         <img src="{{= snippet.thumbnails.high.url}}">
         <div class="caption">
           <h3>{{= snippet.title }}</h3>
-          <p>...</p>
+          <p><a href="http://www.youtube.com/watch?v={{= id.videoId }}" target="_blank">Preview on YouTube</p>
+
+          <form class="new_song" id="new_song" action="/songs" method="post">
+
+            <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
+          <input type="hidden" name="song[title]" id="song_title" value="{{= snippet.title }}">
+
+          <input type="hidden" name="song[youtube_id]" id="song_youtube_id" value={{= id.videoId }}>
+
+          <input type="hidden" name="song[playlist_id]" id="song_playlist_id" value=<%=@random%>>
+
+          <input type="hidden" name="song[account_id]" id="song_account_id" value=<%=@current_account.id%>>
+
+
+
+          <input type="submit" name="commit" value="Add Song" />
+
+
+          </form>
 
         </div>
       </div>
     </div>
-
-<!-- <li>{{= snippet.title }} - {{= id.videoId }}</li>
-{{= snippet.thumbnails.high.url}} -->
 </script>
