@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+#buddy_logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/*Not sure why body was including footer*/
+#allContent {
+  width: 90%;
+  border: 1px black solid;
+  margin-bottom: 1em;
+}
+
+footer {
+  width: 90%;
+  border: 1px black solid;
+}
+
+.navbar {
+display:inline-block;
+padding: 1em;
+}

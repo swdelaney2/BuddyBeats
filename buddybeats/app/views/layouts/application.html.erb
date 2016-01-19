@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Buddybeats</title>
+  <title>BuddyBeats</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <img src=/images/buddybeats.png height="100px" id="buddy_logo">
 </head>
 <body>
+<div id="allContent">
+
 
 <%= yield %>
-
+</div>
 </body>
+<footer>
+<ul>
+  <li class="navbar"><a href=/playlists>Home</a></li>
+  <li class="navbar"><a href=/playlists/mylists>My Playlists</a></li>
+</ul>
+</footer>
 </html>
