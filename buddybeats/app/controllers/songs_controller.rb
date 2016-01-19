@@ -26,7 +26,14 @@ class SongsController < ApplicationController
   end
 
   def search
-    @song = Song.new
+    if @current_account.id == session[:playlist_owner]
+      @song = Song.new
+    elsif
+      @songCount = Song.where(playlist_id: session[:random_hex], account_id: @current_account.id).count < session[:quantity]
+      @song = Song.new
+    else
+      render plain: "Sorry, dude. You added too many songs."
+    end
   end
 
   def show

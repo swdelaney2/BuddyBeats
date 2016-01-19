@@ -36,6 +36,10 @@ class PlaylistsController < ApplicationController
       session[:playlist_title] = @playlist.title
       session[:playlist_description] = @playlist.description
       session[:random_hex] = @playlist.random_hex
+      session[:playlist_owner] = @playlist.account_id
+      session[:quantity] = @playlist.quantity
+
+
 
       redirect_to '/songs/show'
       # render json: @playlist, status: :ok
