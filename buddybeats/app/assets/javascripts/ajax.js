@@ -1,5 +1,6 @@
 // Search form
 
+// http://stackoverflow.com/questions/17600093/rails-javascript-not-loading-after-clicking-through-link-to-helper
 // $(document).ready(function() {
 $(document).on('page:load', function() {
 $('#search_form').submit(function(e) {

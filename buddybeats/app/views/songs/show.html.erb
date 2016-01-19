@@ -1,13 +1,24 @@
 <h1><%= @playlist_title = session[:playlist_title] %></h1>
 <em><%= @playlist_description = session[:playlist_description] %></em>
+<div id="playlistLink">
+
+</div>
+
+
 <% @random = session[:random_hex] %>
-
-<p>
+<%= @idsForPlaylist %>
   <ol>
+<% @idsForPlaylist = [] %>
 <% @songs.each do |inc| %>
-
+<% @idsForPlaylist.push(inc.youtube_id) %>
 <li><%= inc.title %></li>
 <% end %>
 </ol>
 <p>
 <a href=/songs/search/<%= @random %>>Add song to playlist</a>
+
+<% @formattedIDS = @idsForPlaylist.join(",") %>
+
+<script type="text/javascript">
+$( "#playlistLink" ).append( "<a href='http://www.youtube.com/watch_videos?video_ids=<%= @formattedIDS %>' target='_blank'>Playlist Link</a>" );
+</script>

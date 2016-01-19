@@ -5,7 +5,8 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     if @song.save
-      render json: @song, status: :created
+      redirect_to '/songs/show'
+      # render json: @song, status: :created
     else
       render json: @song.errors, status: :unprocessable_entity
     end
