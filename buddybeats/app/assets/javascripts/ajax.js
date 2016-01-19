@@ -1,6 +1,7 @@
 // Search form
 
-$(document).ready(function() {
+// $(document).ready(function() {
+$(document).on('page:load', function() {
 $('#search_form').submit(function(e) {
     e.preventDefault();
     var keyword = $(":input[name=keyword]", this).val();
