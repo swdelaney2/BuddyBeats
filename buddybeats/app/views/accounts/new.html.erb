@@ -1,0 +1,26 @@
+<h1>Register</h1>
+
+<%= form_for @account do |inc| %>
+
+
+<%= inc.label :user_name %>
+<%= inc.text_field :user_name %>
+
+<%= inc.label :user_email %>
+<%= inc.text_field :user_email %>
+
+<%= inc.label :password %>
+<%= inc.password_field :password %>
+
+<%= inc.label :password_confirmation %>
+<%= inc.password_field :password_confirmation %>
+
+<%= inc.submit %>
+
+
+<% end %>
+
+
+<p><hr><p>
+can also do this:
+form_for @account, html: {class: "whatever"} do |inc|

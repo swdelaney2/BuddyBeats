@@ -1,0 +1,35 @@
+<h1>Playlists#new</h1>
+<p>
+<h1>Create Playlist</h1>
+
+<%= form_for @playlist do |inc| %>
+
+
+<%= inc.label :title %>
+<%= inc.text_field :title %>
+
+<%= inc.label :description %>
+<%= inc.text_field :description %>
+
+<%= inc.radio_button :public, true %>
+<%= inc.label :public_true, "Public" %>
+
+<%= inc.radio_button :public, false %>
+<%= inc.label :public_false, "Private" %>
+
+<%= inc.label :quantity %>
+<%= inc.number_field :quantity, in: 1.0..10.0 %>
+
+<%= inc.hidden_field :account_id, :value => @current_account.id %>
+
+<%= inc.hidden_field :random_hex, :value => SecureRandom.hex(5) %>
+
+
+<%= inc.submit %>
+
+
+<% end %>
+
+<p><hr><p>
+can also do this:
+form_for @account, html: {class: "whatever"} do |inc|

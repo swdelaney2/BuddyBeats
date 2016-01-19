@@ -1,0 +1,28 @@
+<h1>Songs#new</h1>
+<p>
+<h1>Add song</h1>
+
+<%= form_for @song do |inc| %>
+
+
+<%= inc.label :title %>
+<%= inc.text_field :title %>
+
+<%= inc.label :youtube_id %>
+<%= inc.text_field :youtube_id %>
+
+
+<%= inc.hidden_field :playlist_id, :value => params[:random_hex] %>
+
+<%= inc.hidden_field :account_id, :value => @current_account.id %>
+
+
+
+<%= inc.submit %>
+
+
+<% end %>
+
+<p><hr><p>
+can also do this:
+form_for @account, html: {class: "whatever"} do |inc|
