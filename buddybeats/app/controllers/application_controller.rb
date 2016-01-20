@@ -8,6 +8,11 @@ class ApplicationController < ActionController::Base
     @current_account ||= Account.find(session[:account_id]) if session[:account_id]
   end
 
+  def all_accounts
+    @all_accounts = Account.all
+  end
+  
+
   def authorize
      redirect_to '/login' unless current_account
    end

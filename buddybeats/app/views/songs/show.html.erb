@@ -8,12 +8,21 @@
 
 <%= @idsForPlaylist %>
   <ol>
+<table style="width:auto">
+
+
 <% @idsForPlaylist = [] %>
 <% @songs.each do |inc| %>
 <% @idsForPlaylist.push(inc.youtube_id) %>
-<li><%= inc.title %></li>
+
+<tr>
+  <td><img src="http://img.youtube.com/vi/<%=inc.youtube_id%>/mqdefault.jpg" height="90"></td>
+  <td><li><%= inc.title %></td>
+  <td>Submitted by: <%= @all_accounts.find(inc.account_id).user_name %> </li></td>
+</tr>
+
 <% end %>
-</ol>
+</ol></table>
 <p>
 <a href=/songs/search/<%= @random %>>Add song to playlist</a>
 

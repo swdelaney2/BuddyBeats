@@ -3,9 +3,9 @@
 <ol>
 <% @playlists.each do |inc| %>
 
-<li><a href=/playlists/<%= inc.random_hex %>><%= inc.title %></a> - <%= link_to 'Destroy', playlist_path(inc),
+<li><a href=/playlists/<%= inc.random_hex %>><%= inc.title %></a> &nbsp;&nbsp;&nbsp; <%= link_to image_tag('delete-icon2.png'), playlist_path(inc),
               method: :delete,
-              data: { "sweet-alert-confirm": "Are you sure you want to delete this playlist?" } %> - <%= link_to 'Edit', edit_playlist_path(inc) %>
+              data: { "sweet-alert-confirm": "Are you sure you want to delete this playlist?" } %> &nbsp; <%= link_to image_tag('edit-icon3.png'), edit_playlist_path(inc) %></li>
 
 
 

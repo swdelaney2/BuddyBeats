@@ -44,6 +44,7 @@ class SongsController < ApplicationController
   end
 
   def show
+    all_accounts
     @songs = []
     Song.where(playlist_hex: session[:playlist_hex]).find_each do |inc|
       @songs.push(inc)
