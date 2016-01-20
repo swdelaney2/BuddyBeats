@@ -66,17 +66,24 @@ class PlaylistsController < ApplicationController
     end
   end
 
-  def destroy
-    # confirm: ('Are you sure you want to delete this playlist?')
-    @playlist = Playlist.find(params[:id])
-    if @playlist
-      @playlist.destroy
-      head :no_content
-      render plain: "deleted!"
+  # def destroy
+  #   # confirm: ('Are you sure you want to delete this playlist?')
+  #   @playlist = Playlist.find(params[:id])
+  #   if @playlist
+  #     @playlist.destroy
+  #     head :no_content
+  #     render plain: "deleted!"
+  #
+  #   else
+  #       render json: @playlist.errors, status: :unprocessable_entity
+  #   end
+  # end
 
-    else
-        render json: @playlist.errors, status: :unprocessable_entity
-    end
+  def destroy
+    @playlist = Playlist.find(params[:id])
+    @playlist.destroy
+
+    redirect_to playlists_path
   end
 
   def edit
