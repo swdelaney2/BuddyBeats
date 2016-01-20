@@ -1,0 +1,7 @@
+<h1>My Songs</h1>
+
+<% @songs.each do |inc| %>
+<li><%= inc.title %></li> - <%= link_to 'Destroy', song_path(inc),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %> - <%= link_to 'Edit', edit_song_path(inc) %>
+<% end %>

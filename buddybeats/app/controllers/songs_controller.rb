@@ -13,9 +13,14 @@ class SongsController < ApplicationController
   end
 
   def destroy
+    @song = Song.find(params[:id])
+    @song.destroy
+
+    redirect_to '/songs/mysongs'
   end
 
   def edit
+    @song = Song.find(params[:id])
   end
 
   def index
@@ -45,7 +50,20 @@ class SongsController < ApplicationController
     end
   end
 
+  def mysongs
+    @songs = []
+    Song.where(account_id: @current_account.id).find_each do |inc|
+      @songs.push(inc)
+    end
+  end
+
   def update
+    @song = Song.find(params[:id])
+    if @song.update(song_params)
+      redirect_to '/songs/mysongs'
+    else
+      render json: @song.errors, status: :unprocessable_entity
+    end
   end
 
   private

@@ -2,11 +2,13 @@ Rails.application.routes.draw do
 
 
   get 'songs/destroy'
-  get 'songs/edit'
+  # get 'songs/edit'
   get 'songs/index'
 
   get 'songs/new/:random_hex', to: 'songs#new'
   get 'songs/create', to: 'songs#create'
+  get 'songs/mysongs', to: 'songs#mysongs'
+
 
   get 'songs/show'
   get 'songs/update'
