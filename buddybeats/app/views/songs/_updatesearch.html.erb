@@ -1,11 +1,7 @@
-<h1>Songs#edit</h1>
-
-
 <h1>Search</h1>
 
 <% @random = params[:random_hex] %>
 <% @playlist_id = session[:playlist_id] %>
-<!-- <%= @song.id %> -->
 
 
 <form id="search_form" method="get">
@@ -38,27 +34,25 @@ searchYouTube("britney")
           <h3>{{= snippet.title }}</h3>
           <p><a href="http://www.youtube.com/watch?v={{= id.videoId }}" target="_blank">Preview on YouTube</p>
 
-        <form action="/songs/<%= @song.id %>" accept-charset="UTF-8" method="post">
+          <form class="new_song" id="new_song" action="/songs" method="post">
 
-        <input type="hidden" name="_method" value="patch">
+          <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
 
-        <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
+          <input type="hidden" name="song[title]" id="song_title" value="{{= snippet.title }}">
 
-        <input type="hidden" name="song[title]" id="song_title" value="{{= snippet.title }}">
+          <input type="hidden" name="song[youtube_id]" id="song_youtube_id" value={{= id.videoId }}>
 
-        <input type="hidden" name="song[youtube_id]" id="song_youtube_id" value={{= id.videoId }}>
+          <input type="hidden" name="song[playlist_id]" id="song_playlist_id" value=<%=@playlist_id%>>
 
-        <input type="submit" name="commit" value="Save Song" />
+          <input type="hidden" name="song[playlist_hex]" id="song_playlist_hex" value=<%=@random%>>
 
-        </form>
+          <input type="hidden" name="song[account_id]" id="song_account_id" value=<%=@current_account.id%>>
 
+          <input type="submit" name="commit" value="Add Song" />
+
+          </form>
 
         </div>
       </div>
     </div>
 </script>
-<hr>
-
-
-
-<%= link_to 'Back', songs_path %>

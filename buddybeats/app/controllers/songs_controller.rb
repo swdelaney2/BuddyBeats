@@ -60,6 +60,8 @@ class SongsController < ApplicationController
   def update
     @song = Song.find(params[:id])
     if @song.update(song_params)
+      # puts "testing"
+      # puts song_params
       redirect_to '/songs/mysongs'
     else
       render json: @song.errors, status: :unprocessable_entity

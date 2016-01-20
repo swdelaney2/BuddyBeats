@@ -1,0 +1,42 @@
+<h1>Songs#edit</h1>
+
+<h1>Editing song</h1>
+
+<%= form_for :song, url: song_path(@song), method: :patch do |inc| %>
+
+  <% if @song.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@song.errors.count, "error") %> prohibited
+        this song from being saved:
+      </h2>
+      <ul>
+        <% @song.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= inc.label :title %><br>
+    <%= inc.text_field :title %>
+  </p>
+
+  <p>
+    <%= inc.label :youtube_id %><br>
+    <%= inc.text_area :youtube_id %>
+  </p>
+
+
+
+  <p>
+    <%= inc.submit %>
+  </p>
+
+<% end %>
+
+<%= render "/songs/updatesearch" %>
+
+
+<%= link_to 'Back', songs_path %>
