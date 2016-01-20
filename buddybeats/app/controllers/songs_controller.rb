@@ -26,8 +26,10 @@ class SongsController < ApplicationController
   end
 
   def search
+    # allow owner to add as many as they like
     if @current_account.id == session[:playlist_owner]
       @song = Song.new
+      # limit others to only add as many songs as the owner designated
     elsif
       @songCount = Song.where(playlist_id: session[:random_hex], account_id: @current_account.id).count < session[:quantity]
       @song = Song.new
