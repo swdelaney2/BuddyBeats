@@ -16,7 +16,7 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
     @song.destroy
 
-    redirect_to '/songs/mysongs'
+    redirect_to :back
   end
 
   def edit
@@ -48,6 +48,9 @@ class SongsController < ApplicationController
     @songs = []
     Song.where(playlist_hex: session[:playlist_hex]).find_each do |inc|
       @songs.push(inc)
+    end
+    if @current_account.id == session[:playlist_owner]
+      @owner = true
     end
   end
 

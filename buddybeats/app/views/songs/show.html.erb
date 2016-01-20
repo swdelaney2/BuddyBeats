@@ -8,7 +8,7 @@
 
 <%= @idsForPlaylist %>
   <ol>
-<table style="width:auto">
+<table width=auto>
 
 
 <% @idsForPlaylist = [] %>
@@ -19,6 +19,13 @@
   <td><img src="http://img.youtube.com/vi/<%=inc.youtube_id%>/mqdefault.jpg" height="90"></td>
   <td><li><%= inc.title %></td>
   <td>Submitted by: <%= @all_accounts.find(inc.account_id).user_name %> </li></td>
+  <td>
+    <div class="ownerControls">
+      <%= link_to image_tag('delete-icon2.png'), song_path(inc),
+                    method: :delete,
+                    data: { "sweet-alert-confirm": "Are you sure you want to delete this song?" } %>
+    </div>
+  </td>
 </tr>
 
 <% end %>
@@ -31,3 +38,9 @@
 <script type="text/javascript">
 $( "#playlistLink" ).append( "<a href='http://www.youtube.com/watch_videos?video_ids=<%= @formattedIDS %>' target='_blank'>Playlist Link</a>" );
 </script>
+
+<% if !@owner %>
+<script type="text/javascript">
+$('.ownerControls').hide();
+</script>
+<% end %>
