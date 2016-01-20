@@ -39,10 +39,11 @@ ActiveRecord::Schema.define(version: 20160112223139) do
   create_table "songs", force: :cascade do |t|
     t.string   "title"
     t.string   "youtube_id"
-    t.string   "playlist_id"
+    t.integer  "playlist_id"
+    t.string   "playlist_hex"
     t.integer  "account_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end

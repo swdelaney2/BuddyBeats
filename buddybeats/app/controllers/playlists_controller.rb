@@ -35,10 +35,10 @@ class PlaylistsController < ApplicationController
     if @playlist
       session[:playlist_title] = @playlist.title
       session[:playlist_description] = @playlist.description
-      session[:random_hex] = @playlist.random_hex
+      session[:playlist_hex] = @playlist.random_hex
       session[:playlist_owner] = @playlist.account_id
       session[:quantity] = @playlist.quantity
-      # session[:playlist_id] = @playlist.id
+      session[:playlist_id] = @playlist.id
 
       redirect_to '/songs/show'
       # render json: @playlist, status: :ok

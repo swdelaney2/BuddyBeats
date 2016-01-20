@@ -1,3 +1,5 @@
+<h1>REMEMBER THIS PAGE IS NOT BEING USED</h1>
+
 <h1>Songs#new</h1>
 <p>
 <h1>Add song</h1>
@@ -11,8 +13,9 @@
 <%= inc.label :youtube_id %>
 <%= inc.text_field :youtube_id %>
 
+<%= inc.hidden_field :playlist_id, :value => params[:playlist_id] %>
 
-<%= inc.hidden_field :playlist_id, :value => params[:random_hex] %>
+<%= inc.hidden_field :playlist_hex, :value => params[:random_hex] %>
 
 <%= inc.hidden_field :account_id, :value => @current_account.id %>
 

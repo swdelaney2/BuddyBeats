@@ -31,7 +31,7 @@ class SongsController < ApplicationController
       @song = Song.new
       # limit others to only add as many songs as the owner designated
     elsif
-      @songCount = Song.where(playlist_id: session[:random_hex], account_id: @current_account.id).count < session[:quantity]
+      @songCount = Song.where(playlist_id: session[:id], account_id: @current_account.id).count < session[:quantity]
       @song = Song.new
     else
       render plain: "Sorry, dude. You added too many songs."
@@ -40,7 +40,7 @@ class SongsController < ApplicationController
 
   def show
     @songs = []
-    Song.where(playlist_id: session[:random_hex]).find_each do |inc|
+    Song.where(playlist_hex: session[:playlist_hex]).find_each do |inc|
       @songs.push(inc)
     end
   end
@@ -50,6 +50,6 @@ class SongsController < ApplicationController
 
   private
     def song_params
-      params.require(:song).permit(:title, :youtube_id, :playlist_id, :account_id)
+      params.require(:song).permit(:title, :youtube_id, :playlist_id, :playlist_hex, :account_id)
     end
 end
