@@ -83,7 +83,7 @@ class PlaylistsController < ApplicationController
     @playlist = Playlist.find(params[:id])
     @playlist.destroy
 
-    redirect_to playlists_path
+    redirect_to '/playlists/mylists'
   end
 
   def edit
