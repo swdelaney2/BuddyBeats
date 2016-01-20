@@ -4,7 +4,6 @@
 
 </div>
 <% @random = session[:random_hex] %>
-
 <input type="text" name="playlist_url_share" value="http://localhost:3000/playlists/<%= @random %>" size="40" readonly="readonly" onclick="this.select()">
 
 <%= @idsForPlaylist %>

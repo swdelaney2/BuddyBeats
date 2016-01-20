@@ -5,5 +5,7 @@
 
 <% @playlists.each do |inc| %>
 
-<li>Playlist Title: <a href=/playlists/<%= inc.random_hex %>><%= inc.title %></a></li>
+<li>Playlist Title: <a href=/playlists/<%= inc.random_hex %>><%= inc.title %></a> - <a href=/playlists/destroy/<%= inc.id %>>Delete playlist?</a></li>
+
+
 <% end %>

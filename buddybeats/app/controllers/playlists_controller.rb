@@ -38,8 +38,7 @@ class PlaylistsController < ApplicationController
       session[:random_hex] = @playlist.random_hex
       session[:playlist_owner] = @playlist.account_id
       session[:quantity] = @playlist.quantity
-
-
+      # session[:playlist_id] = @playlist.id
 
       redirect_to '/songs/show'
       # render json: @playlist, status: :ok
@@ -68,10 +67,13 @@ class PlaylistsController < ApplicationController
   end
 
   def destroy
+    # confirm: ('Are you sure you want to delete this playlist?')
     @playlist = Playlist.find(params[:id])
     if @playlist
       @playlist.destroy
       head :no_content
+      render plain: "deleted!"
+
     else
         render json: @playlist.errors, status: :unprocessable_entity
     end

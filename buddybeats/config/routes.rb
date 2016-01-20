@@ -2,25 +2,19 @@ Rails.application.routes.draw do
 
 
   get 'songs/destroy'
-
   get 'songs/edit'
-
   get 'songs/index'
 
   get 'songs/new/:random_hex', to: 'songs#new'
-
   get 'songs/create', to: 'songs#create'
 
-
   get 'songs/show'
-
   get 'songs/update'
-
   get 'songs/search/:random_hex', to: 'songs#search'
 
 
   # get 'playlists/index'
-  #
+
   get 'playlists/create', to: 'playlists#create'
 
 
@@ -33,6 +27,7 @@ Rails.application.routes.draw do
 
   get '/sessions/destroy', to: 'sessions#destroy'
 
+  get '/playlists/destroy/:id', to: 'playlists#destroy'
 
 
   #
@@ -44,7 +39,6 @@ Rails.application.routes.draw do
   #
   # get 'playlists/new'
   #
-  # get 'playlists/destroy'
 
   root "accounts#new"
 
