@@ -1,7 +1,7 @@
+<h1>Search</h1>
 
-<h1>testing search functionality</h1>
-<%= @random = params[:random_hex] %>
-<%= @playlist_id = session[:playlist_id] %>
+<% @random = params[:random_hex] %>
+<% @playlist_id = session[:playlist_id] %>
 
 
 <form id="search_form" method="get">
@@ -36,7 +36,8 @@ searchYouTube("britney")
 
           <form class="new_song" id="new_song" action="/songs" method="post">
 
-            <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
+          <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
+
           <input type="hidden" name="song[title]" id="song_title" value="{{= snippet.title }}">
 
           <input type="hidden" name="song[youtube_id]" id="song_youtube_id" value={{= id.videoId }}>
@@ -47,10 +48,7 @@ searchYouTube("britney")
 
           <input type="hidden" name="song[account_id]" id="song_account_id" value=<%=@current_account.id%>>
 
-
-
           <input type="submit" name="commit" value="Add Song" />
-
 
           </form>
 

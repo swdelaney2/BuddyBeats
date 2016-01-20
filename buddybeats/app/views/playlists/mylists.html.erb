@@ -7,7 +7,7 @@
 
 <li>Playlist Title: <a href=/playlists/<%= inc.random_hex %>><%= inc.title %></a> - <%= link_to 'Destroy', playlist_path(inc),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %>
+              data: { confirm: 'Are you sure?' } %> - <%= link_to 'Edit', edit_playlist_path(inc) %>
 
 
 

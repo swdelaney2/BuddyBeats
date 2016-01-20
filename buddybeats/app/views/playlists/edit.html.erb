@@ -1,2 +1,47 @@
 <h1>Playlists#edit</h1>
-<p>Find me in app/views/playlists/edit.html.erb</p>
+
+<h1>Editing playlist</h1>
+
+<%= form_for :playlist, url: playlist_path(@playlist), method: :patch do |inc| %>
+
+  <% if @playlist.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@playlist.errors.count, "error") %> prohibited
+        this playlist from being saved:
+      </h2>
+      <ul>
+        <% @playlist.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= inc.label :title %><br>
+    <%= inc.text_field :title %>
+  </p>
+
+  <p>
+    <%= inc.label :description %><br>
+    <%= inc.text_area :description %>
+  </p>
+
+
+<%= inc.radio_button :public, true %>
+<%= inc.label :public_true, "Public" %>
+  <p>
+<%= inc.radio_button :public, false %>
+<%= inc.label :public_false, "Private" %>
+  <p>
+<%= inc.label :quantity %>
+<%= inc.number_field :quantity, in: 1.0..10.0 %>
+
+  <p>
+    <%= inc.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', playlists_path %>

@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def current_account
+    # session[:account_id] = nil   (if you forget to logout before you drop databases)
     @current_account ||= Account.find(session[:account_id]) if session[:account_id]
   end
 

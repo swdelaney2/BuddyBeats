@@ -60,7 +60,7 @@ class PlaylistsController < ApplicationController
   def update
     @playlist = Playlist.find(params[:id])
     if @playlist.update(playlist_params)
-      head :no_content
+      redirect_to '/playlists/mylists'
     else
       render json: @playlist.errors, status: :unprocessable_entity
     end
@@ -87,6 +87,7 @@ class PlaylistsController < ApplicationController
   end
 
   def edit
+    @playlist = Playlist.find(params[:id])
   end
 
   def new
