@@ -30,9 +30,11 @@
   border: 1px black solid;
   padding: 1em;
   margin-bottom: 1em;
+  float: left;
 }
 
 footer {
+  clear: both;
   width: 90%;
   border: 1px black solid;
 }
@@ -44,4 +46,25 @@ padding: 1em;
 
 td {
   padding: 1em;
+}
+
+.form-container {
+     width: 500px;
+     clear: both;
+ }
+ .form-container label {
+     width: 50%;
+ }
+ .form-container input {
+     width: 50%;
+ }
+
+#register {
+  float: left;
+  width: 40%;
+}
+
+#login {
+  float: right;
+  width: 40%;
 }

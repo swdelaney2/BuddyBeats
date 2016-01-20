@@ -1,28 +1,29 @@
-<h1>Register</h1>
+<div id="register">
 
-<%= form_for @account do |inc| %>
+  <h1>Register</h1>
+  <div class="form-container">
+
+    <%= form_for @account do |inc| %>
+
+      <p><%= inc.label :user_name %></p>
+      <p><%= inc.text_field :user_name %></p>
+
+      <p><%= inc.label :user_email %></p>
+      <p><%= inc.text_field :user_email %></p>
+
+      <p><%= inc.label :password %></p>
+      <p><%= inc.password_field :password %></p>
+
+      <p><%= inc.label :password_confirmation %></p>
+      <p><%= inc.password_field :password_confirmation %></p>
+
+      <p><%= inc.submit %></p>
 
 
-<%= inc.label :user_name %>
-<%= inc.text_field :user_name %>
+    <% end %>
+  </div>
+</div>
 
-<p><%= inc.label :user_email %>
-<%= inc.text_field :user_email %>
-
-<p><%= inc.label :password %>
-<%= inc.password_field :password %>
-
-<p><%= inc.label :password_confirmation %>
-<%= inc.password_field :password_confirmation %>
-
-<p><%= inc.submit %>
-
-
-<% end %>
-
-
-<p><hr><p>
-can also do this:
-form_for @account, html: {class: "whatever"} do |inc|
-<p>
+<div id="login">
   <%= render "/sessions/login" %>
+</div>

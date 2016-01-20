@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
   def all_accounts
     @all_accounts = Account.all
   end
-  
+
 
   def authorize
-     redirect_to '/login' unless current_account
+     redirect_to '/' unless current_account
    end
 
    def register_authorize

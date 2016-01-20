@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
 
   # get 'playlists/index'
+  get '/about', to: 'playlists#about'
 
   get 'playlists/create', to: 'playlists#create'
 
