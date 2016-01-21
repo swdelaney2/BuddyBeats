@@ -23,6 +23,8 @@ header, footer, #allContent {
 }
 
 
+body	{ background:url(/images/conden.jpg) top right no-repeat; background-attachment:fixed; }
+
 #buddy_logo {
   display: block;
   margin-left: auto;
@@ -36,11 +38,13 @@ header, footer, #allContent {
   padding: 1em;
   margin-bottom: 1em;
   float: left;
+  background: rgba(255, 255, 255, 0.8);
 }
 
 footer {
   clear: both;
   border: 1px black solid;
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .navbar {
