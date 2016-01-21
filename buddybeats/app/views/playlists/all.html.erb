@@ -2,8 +2,13 @@
 
 
 
-
+<table class="table table-hover table-nonfluid">
+<tr><td><strong>Playlist Title</strong></td><td></td>
+  <td><strong>Owner</strong></td></tr>
 <% @playlists.each do |inc| %>
-
-<li>Playlist Title: <a href=/playlists/<%= inc.random_hex %>><%= inc.title %></a></li>
+<tr><td>
+<li><a href=/playlists/<%= inc.random_hex %>><%= inc.title %></a></li>
+</td><td></td><td><%= @all_accounts.find(inc.account_id).user_name %></td></tr>
 <% end %>
+
+</table>

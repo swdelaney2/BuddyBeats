@@ -20,6 +20,7 @@ class PlaylistsController < ApplicationController
   end
 
   def all
+    all_accounts
     @playlists = []
     Playlist.where(public: true).find_each do |inc|
       @playlists.push(inc)
