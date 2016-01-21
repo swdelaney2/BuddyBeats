@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  before_action :counter
 
   def current_account
     # session[:account_id] = nil   (if you forget to logout before you drop databases)
@@ -21,6 +22,11 @@ class ApplicationController < ActionController::Base
      if current_account
        redirect_to '/playlists'
     end
+  end
+
+  def counter
+    @song_count = Song.all.count
+    @playlist_count = Playlist.all.count
   end
 
 end
