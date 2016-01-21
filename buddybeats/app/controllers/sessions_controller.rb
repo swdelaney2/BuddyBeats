@@ -10,8 +10,10 @@ class SessionsController < ApplicationController
     account = Account.find_by(user_email: params[:user_email])
     if account && account.authenticate(params[:password])
       session[:account_id] = account.id
+      @login_error = ""
       redirect_to '/'
     else
+      @login_error = "Sorry, you entered an incorrect username or password. Please try again."
       render 'new'
     end
   end
