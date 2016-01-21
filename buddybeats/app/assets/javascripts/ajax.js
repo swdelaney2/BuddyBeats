@@ -1,7 +1,6 @@
 // Search form
 
 // http://stackoverflow.com/questions/17600093/rails-javascript-not-loading-after-clicking-through-link-to-helper
-// $(document).ready(function() {
 $(document).on('page:load', function() {
 $('#search_form').submit(function(e) {
     e.preventDefault();
@@ -9,7 +8,14 @@ $('#search_form').submit(function(e) {
     searchYouTube(keyword)
 });
 });
-
+// need both in case they open a new tab
+$(document).ready(function() {
+$('#search_form').submit(function(e) {
+    e.preventDefault();
+    var keyword = $(":input[name=keyword]", this).val();
+    searchYouTube(keyword)
+});
+});
 
 function searchYouTube(searchTerms) {
 var ajaxArgument = {
