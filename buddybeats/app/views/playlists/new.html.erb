@@ -9,7 +9,7 @@
     <p><%= inc.label :description %>
     <%= inc.text_field :description %></p>
 
-    <p><%= inc.label :quantity %>
+    <p><div id="quantity"><%= inc.label :quantity %><img src=/images/question-mark.png title="How many song additions do you want to allow per person?"></div>
     <%= inc.number_field :quantity, in: 1.0..10.0 %></p>
 
 </div>

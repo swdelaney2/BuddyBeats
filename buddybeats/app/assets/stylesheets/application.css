@@ -17,6 +17,12 @@
   *= require sweetalert
   */
 
+header, footer, #allContent {
+  margin-left: 1em;
+  width: 90%;
+}
+
+
 #buddy_logo {
   display: block;
   margin-left: auto;
@@ -26,7 +32,6 @@
 
 /*Not sure why body was including footer*/
 #allContent {
-  width: 90%;
   border: 1px black solid;
   padding: 1em;
   margin-bottom: 1em;
@@ -35,13 +40,13 @@
 
 footer {
   clear: both;
-  width: 90%;
   border: 1px black solid;
 }
 
 .navbar {
 display:inline-block;
 padding: 1em;
+margin: 0;
 }
 
 /*td {
@@ -67,4 +72,47 @@ padding: 1em;
 #login {
   float: right;
   width: 40%;
+}
+
+#quantity label {
+  width: auto;
+  margin-right: 10px;
+}
+
+#quantity img {
+  height: 14px;
+  border: 1px black solid;
+  padding: 1px;
+  border-radius: 50%;
+}
+
+/*Hover tooltip, jQuery UI CSS (taken from themeroller)*/
+
+.ui-tooltip {
+	padding: 8px;
+	position: absolute;
+	z-index: 9999;
+	max-width: 300px;
+	-webkit-box-shadow: 0 0 5px #aaa;
+	box-shadow: 0 0 5px #aaa;
+}
+body .ui-tooltip {
+	border-width: 2px;
+}
+
+.ui-widget-content {
+	border: 1px solid #aaaaaa;
+	background: #ffffff;
+	color: #222222;
+}
+
+.ui-helper-hidden-accessible {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
 }
