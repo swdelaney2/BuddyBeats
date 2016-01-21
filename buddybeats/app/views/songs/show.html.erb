@@ -8,7 +8,7 @@
 
 <%= @idsForPlaylist %>
   <ol>
-<table width=auto>
+<table class="table">
 
 
 <% @idsForPlaylist = [] %>
@@ -20,11 +20,9 @@
   <td><li><%= inc.title %></td>
   <td>Submitted by: <%= @all_accounts.find(inc.account_id).user_name %> </li></td>
   <td>
-    <div class="ownerControls">
       <%= link_to image_tag('delete-icon2.png'), song_path(inc),
                     method: :delete,
                     data: { "sweet-alert-confirm": "Are you sure you want to delete this song?" } %>
-    </div>
   </td>
 </tr>
 
