@@ -1,7 +1,7 @@
 class CreatePlaylists < ActiveRecord::Migration
   def change
     create_table :playlists do |t|
-      t.string :title, uniqueness: { case_sensitive: false }
+      t.string :title
       t.string :description
       t.boolean :public
       t.integer :quantity

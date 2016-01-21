@@ -1,6 +1,6 @@
 <h1>Log-in</h1>
 
-<%= @login_error %>
+<div class="error"><%= @login_error %></div>
 <p>
 <%= form_tag sessions_path do %>
   <%= label_tag :user_email %>

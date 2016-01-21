@@ -116,3 +116,8 @@ body .ui-tooltip {
 	position: absolute;
 	width: 1px;
 }
+
+/*For error messages on register and login*/
+.error {
+  color: red;
+}
