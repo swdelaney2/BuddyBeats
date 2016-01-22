@@ -15,10 +15,10 @@ class AccountsController < ApplicationController
     if @account.save
       session[:account_id] = @account.id
       @account_error = ""
-      uri = session[:original_uri]
-      session[:original_uri] = nil
-      if uri
-        redirect_to uri
+      url = session[:original_url]
+      session[:original_url] = nil
+      if url
+        redirect_to url
       else
       redirect_to '/playlists#index'
       end

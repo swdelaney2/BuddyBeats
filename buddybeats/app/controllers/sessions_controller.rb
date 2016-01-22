@@ -11,10 +11,10 @@ class SessionsController < ApplicationController
     if account && account.authenticate(params[:password])
       session[:account_id] = account.id
       @login_error = ""
-      uri = session[:original_uri]
-      session[:original_uri] = nil
-      if uri
-        redirect_to uri
+      url = session[:original_url]
+      session[:original_url] = nil
+      if url
+        redirect_to url
       else
         redirect_to '/'
       end

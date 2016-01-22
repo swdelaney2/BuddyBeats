@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
 
   def authorize
-    session[:original_uri] = request.url
+    session[:original_url] = request.url
      redirect_to '/' unless current_account
    end
 
