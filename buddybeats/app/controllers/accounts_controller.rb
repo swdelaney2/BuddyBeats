@@ -15,7 +15,13 @@ class AccountsController < ApplicationController
     if @account.save
       session[:account_id] = @account.id
       @account_error = ""
+      uri = session[:original_uri]
+      session[:original_uri] = nil
+      if uri
+        redirect_to uri
+      else
       redirect_to '/playlists#index'
+      end
       # redirect_to '/login'
     elsif @account.errors.messages.key?(:user_name)
       puts "testing - username"

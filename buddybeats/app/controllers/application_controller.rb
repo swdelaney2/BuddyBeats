@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
 
 
   def authorize
+    session[:original_uri] = request.url
      redirect_to '/' unless current_account
    end
 
@@ -28,5 +29,6 @@ class ApplicationController < ActionController::Base
     @song_count = Song.all.count
     @playlist_count = Playlist.all.count
   end
+
 
 end
