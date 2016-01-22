@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :password_resets
   # get 'password_resets/new'
 
-  get 'songs/destroy'
+  delete 'songs/destroy'
   # get 'songs/edit'
   get 'songs/index'
 
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
   get '/sessions/destroy', to: 'sessions#destroy'
 
-  get '/playlists/destroy/:id', to: 'playlists#destroy'
+  delete '/playlists/destroy/:id', to: 'playlists#destroy'
 
 
   #
@@ -57,7 +57,7 @@ Rails.application.routes.draw do
   post '/users', to: 'accounts#create'
   get '/login', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy'
 
   # resources :sessions
 
