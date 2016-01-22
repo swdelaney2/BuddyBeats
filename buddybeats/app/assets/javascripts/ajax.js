@@ -20,7 +20,7 @@ $('#search_form').submit(function(e) {
 function searchYouTube(searchTerms) {
 var ajaxArgument = {
     type: 'get',
-    url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=' + searchTerms + '&type=video&key= AIzaSyCKKevlkervBArvX6FKFEbV41FbvmQwHWw',
+    url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=' + searchTerms + '&type=video&key= ' + youTubeENV,
     dataType: 'json',
     success: function(data) {
         console.log("success");
