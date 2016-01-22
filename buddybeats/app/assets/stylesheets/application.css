@@ -125,3 +125,10 @@ body .ui-tooltip {
 .error {
   color: red;
 }
+/*For notice messages*/
+#notice {
+  /*border: black solid 1px;*/
+  background: rgba(246, 10, 10, 0.5);
+  text-align: center;
+  /*color: black;*/
+}
