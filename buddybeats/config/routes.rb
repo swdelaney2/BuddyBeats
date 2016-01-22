@@ -1,67 +1,39 @@
 Rails.application.routes.draw do
 
-  resources :password_resets
-  # get 'password_resets/new'
-
   delete 'songs/destroy'
-  # get 'songs/edit'
   get 'songs/index'
-
   get 'songs/new/:random_hex', to: 'songs#new'
   get 'songs/create', to: 'songs#create'
   get 'songs/mysongs', to: 'songs#mysongs'
-
-
   get 'songs/show'
   get 'songs/update'
   get 'songs/search/:random_hex', to: 'songs#search'
+  get '/songs/spotifysearch', to: 'songs#spotifysearch'
 
 
-  # get 'playlists/index'
   get '/about', to: 'playlists#about'
-
   get 'playlists/create', to: 'playlists#create'
-
-
   get 'playlists/mylists', to: 'playlists#mylists'
   get 'playlists/all', to: 'playlists#all'
-
   get '/playlists/new', to: 'playlists#new'
-
   get '/playlists/:random_hex', to: 'playlists#show'
-
-  get '/sessions/destroy', to: 'sessions#destroy'
-
   delete '/playlists/destroy/:id', to: 'playlists#destroy'
 
 
-  #
-  # get 'playlists/edit'
-  #
-  # get 'playlists/update'
-  #
-  # get 'playlists/show'
-  #
-  # get 'playlists/new'
-  #
-
-  root "accounts#new"
-
-  resources :playlists
-
-  resources :accounts
-
-  resources :songs
-
-  get '/register', to: 'accounts#new'
-  post '/users', to: 'accounts#create'
   get '/login', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy'
+  # get '/logout', to: 'sessions#destroy'
+  get '/sessions/destroy', to: 'sessions#destroy'
 
-  # resources :sessions
+  root "accounts#new"
+  get '/register', to: 'accounts#new'
+  post '/users', to: 'accounts#create'
 
-  # resources :products, only: [:index, :create, :show, :update, :destroy]
+  resources :password_resets
+
+  resources :playlists
+  resources :accounts, except: :destroy
+  resources :songs
 
 
   # The priority is based upon order of creation: first created -> highest priority.
