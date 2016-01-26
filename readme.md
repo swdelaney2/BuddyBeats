@@ -13,6 +13,7 @@ Coming soon!
  * Javascript
  * jQuery
  * PostgreSQL
+ * Rake
  * Ruby on Rails
  * Underscore
 
@@ -43,7 +44,21 @@ While I completed everything I intended to with this project (and more, in fact 
 
 ## Installation Instructions
 
-Coming soon!
+This site requires Ruby, Ruby on Rails, Rake and PostgreSQL. After those are installed, you will simply need to run the following commands:
+
+```
+bundle
+rake db:create
+rake db:migrate
+rails s
+```
+
+If you have trouble with the rake commands, try:
+
+```
+bundle exec rake db:create
+bundle exec rake db:migrate
+```
 
 ## Wireframes / Proposed Architecture
 
