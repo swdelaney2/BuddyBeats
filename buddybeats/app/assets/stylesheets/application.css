@@ -23,14 +23,18 @@ header, footer, #allContent {
 }
 
 
-body	{ background:url(/images/conden.jpg) top right no-repeat; background-attachment:fixed; }
+body	{
+  background-image: url(/images/conden.jpg);
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
 #buddy_logo {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-
 
 /*Not sure why body was including footer*/
 #allContent {
@@ -125,6 +129,7 @@ body .ui-tooltip {
 .error {
   color: red;
 }
+
 /*For notice messages*/
 #notice {
   /*border: black solid 1px;*/
@@ -133,6 +138,7 @@ body .ui-tooltip {
   /*color: black;*/
 }
 
+/*For responsiveness on home page*/
 #login-small {
   display: none;
 }
@@ -141,8 +147,8 @@ body .ui-tooltip {
   #login {
     display: none; }
 
-  #login-small {
-    display: block;
-    clear: both;
-    float: left;
-     } }
+#login-small {
+  display: block;
+  clear: both;
+  float: left;
+   }

@@ -10,7 +10,6 @@ class SongsController < ApplicationController
       else
         redirect_to '/songs/show'
       end
-      # render json: @song, status: :created
     else
       render json: @song.errors, status: :unprocessable_entity
     end
@@ -19,18 +18,15 @@ class SongsController < ApplicationController
   def destroy
     @song = Song.find(params[:id])
     if @song.account_id == @current_account.id
-    @song.destroy
-    redirect_to :back
-  else
-    redirect_to '/hacker'
-  end
+      @song.destroy
+      redirect_to :back
+    else
+      redirect_to '/hacker'
+    end
   end
 
   def edit
     @song = Song.find(params[:id])
-  end
-
-  def index
   end
 
   def new
@@ -38,19 +34,6 @@ class SongsController < ApplicationController
   end
 
   def search
-    # allow owner to add as many as they like
-    if @current_account.id == session[:playlist_owner]
-      @song = Song.new
-      # limit others to only add as many songs as the owner designated
-    elsif
-      @songCount = Song.where(playlist_id: session[:id], account_id: @current_account.id).count < session[:quantity]
-      @song = Song.new
-    else
-      render plain: "Sorry, dude. You added too many songs."
-    end
-  end
-
-  def spotifysearch
     # allow owner to add as many as they like
     if @current_account.id == session[:playlist_owner]
       @song = Song.new
@@ -74,15 +57,13 @@ class SongsController < ApplicationController
     end
   end
 
+# The search and show are identical, but this tells the Spotify pages which methods to use.
+  def spotifysearch
+    search
+  end
+
   def spotifyshow
-    all_accounts
-    @songs = []
-    Song.where(playlist_hex: session[:playlist_hex]).find_each do |inc|
-      @songs.push(inc)
-    end
-    if @current_account.id == session[:playlist_owner]
-      @owner = true
-    end
+    show
   end
 
   def mysongs
@@ -95,12 +76,13 @@ class SongsController < ApplicationController
   def update
     @song = Song.find(params[:id])
     if @song.update(song_params)
-      # puts "testing"
-      # puts song_params
       redirect_to '/songs/mysongs'
     else
       render json: @song.errors, status: :unprocessable_entity
     end
+  end
+
+  def index
   end
 
   private

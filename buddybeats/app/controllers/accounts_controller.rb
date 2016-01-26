@@ -20,20 +20,15 @@ class AccountsController < ApplicationController
       if url
         redirect_to url
       else
-      redirect_to '/playlists#index'
+        redirect_to '/playlists#index'
       end
-      # redirect_to '/login'
     elsif @account.errors.messages.key?(:user_name)
-      puts "testing - username"
       @account_error = "Sorry, that username is already taken."
       render 'new'
     elsif @account.errors.messages.key?(:user_email)
-      puts "testing - email"
       @account_error = "Sorry, an account has already been registered with that e-mail address."
       render 'new'
     else
-      puts "testing - no match"
-      puts @account.errors.messages
       render 'new'
     end
   end

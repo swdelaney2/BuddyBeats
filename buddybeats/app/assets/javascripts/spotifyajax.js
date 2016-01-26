@@ -1,4 +1,6 @@
-// Search form
+// This entire page mirrors the regular ajax.js, which is used for YouTube searches. For additional documentation, see that file.
+
+// Search forms
 
 $(document).on('page:load', function() {
 $('#spotify_search_form').submit(function(e) {
@@ -18,7 +20,7 @@ $('#spotify_search_form').submit(function(e) {
 
 
 function searchSpotify(searchTermsTrack) {
-var ajaxArgument = {
+  var ajaxArgument = {
     type: 'get',
     url: 'https://api.spotify.com/v1/search?q=' + searchTermsTrack + '*&type=track',
     dataType: 'json',
@@ -35,19 +37,17 @@ var ajaxArgument = {
             evaluate: /\{\{(.+?)\}\}/g,
         };
 
-                  var searchTemplate = $('#spotify_search_template').html();
-                  // console.log('Transforming template');
-                  var compileTpl = _.template(searchTemplate);
-                  // console.log('Creating HTML from template & model data');
-                  $('#searchResults').html("");
-                  for (var i = 0; i < data.tracks.items.length; i++) {
-                        var html = compileTpl(data.tracks.items[i]);
-                        // console.log(data.tracks.items[i]);
-                        // console.log('Rendering to page....');
-                        $('#searchResults').append(html);
-                      }
-
-
+        var searchTemplate = $('#spotify_search_template').html();
+        // console.log('Transforming template');
+        var compileTpl = _.template(searchTemplate);
+        // console.log('Creating HTML from template & model data');
+        $('#searchResults').html("");
+        for (var i = 0; i < data.tracks.items.length; i++) {
+              var html = compileTpl(data.tracks.items[i]);
+              // console.log(data.tracks.items[i]);
+              // console.log('Rendering to page....');
+              $('#searchResults').append(html);
+            }
 
     },
     error: function(error) {
@@ -56,5 +56,5 @@ var ajaxArgument = {
     }
 };
 // make the ajax call
-$.ajax(ajaxArgument);
+  $.ajax(ajaxArgument);
 };
