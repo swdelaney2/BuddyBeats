@@ -62,9 +62,9 @@ bundle exec rake db:migrate
 
 ## Wireframes / Proposed Architecture
 
- ![Wireframe](https://i.imgsafe.org/5a287f5.jpg =500px)
+ ![Wireframe](https://i.imgsafe.org/5a287f5.jpg =500x)
 
- ![Sketches](https://i.imgsafe.org/5798c53.jpg =500px)
+ ![Sketches](https://i.imgsafe.org/5798c53.jpg =500x)
 
 ## User stories
   * **Celine:** Celine's wedding is coming up and she wants a way to gather input from her friends about the music she should play at her wedding. She wants to make sure everyone has a good time and gets a special moment during the reception. On her invitation, she includes a bit.ly link for her playlist, so everyone can add two songs. Before the reception, she e-mails the playlist to the DJ so she can coordinate and after the wedding, she savors that the playlist will always be a little time capsule.
