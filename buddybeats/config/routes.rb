@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   get 'songs/create', to: 'songs#create'
   get 'songs/mysongs', to: 'songs#mysongs'
   get 'songs/show'
+  get 'songs/spotifyshow'
   get 'songs/update'
   get 'songs/search/:random_hex', to: 'songs#search'
+  get 'songs/spotifysearch/:random_hex', to: 'songs#spotifysearch'
   get '/songs/spotifysearch', to: 'songs#spotifysearch'
 
 

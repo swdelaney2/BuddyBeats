@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160122183932) do
+ActiveRecord::Schema.define(version: 20160112223139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,16 +21,18 @@ ActiveRecord::Schema.define(version: 20160122183932) do
     t.string   "user_email"
     t.string   "password_digest"
     t.boolean  "is_admin"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "playlists", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
     t.boolean  "public"
+    t.string   "platform"
     t.integer  "quantity"
     t.integer  "account_id"
     t.string   "random_hex"
@@ -41,6 +43,8 @@ ActiveRecord::Schema.define(version: 20160122183932) do
   create_table "songs", force: :cascade do |t|
     t.string   "title"
     t.string   "youtube_id"
+    t.string   "spotify_id"
+    t.string   "spotify_img"
     t.integer  "playlist_id"
     t.string   "playlist_hex"
     t.integer  "account_id"

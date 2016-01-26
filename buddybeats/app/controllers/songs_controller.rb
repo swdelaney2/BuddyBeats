@@ -43,7 +43,31 @@ class SongsController < ApplicationController
     end
   end
 
+  def spotifysearch
+    # allow owner to add as many as they like
+    if @current_account.id == session[:playlist_owner]
+      @song = Song.new
+      # limit others to only add as many songs as the owner designated
+    elsif
+      @songCount = Song.where(playlist_id: session[:id], account_id: @current_account.id).count < session[:quantity]
+      @song = Song.new
+    else
+      render plain: "Sorry, dude. You added too many songs."
+    end
+  end
+
   def show
+    all_accounts
+    @songs = []
+    Song.where(playlist_hex: session[:playlist_hex]).find_each do |inc|
+      @songs.push(inc)
+    end
+    if @current_account.id == session[:playlist_owner]
+      @owner = true
+    end
+  end
+
+  def spotifyshow
     all_accounts
     @songs = []
     Song.where(playlist_hex: session[:playlist_hex]).find_each do |inc|
@@ -74,6 +98,6 @@ class SongsController < ApplicationController
 
   private
     def song_params
-      params.require(:song).permit(:title, :youtube_id, :playlist_id, :playlist_hex, :account_id)
+      params.require(:song).permit(:title, :youtube_id, :spotify_id, :playlist_id, :playlist_hex, :account_id)
     end
 end

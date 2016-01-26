@@ -33,7 +33,9 @@
 
           <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
 
+          <input type="hidden" name="song[title]" id="song_title" value="{{= artists[0].name }} - {{= name }}">
 
+          <input type="hidden" name="song[spotify_id]" id="song_spotify_id" value="{{= id }}">
 
           <input type="hidden" name="song[playlist_id]" id="song_playlist_id" value=<%=@playlist_id%>>
 

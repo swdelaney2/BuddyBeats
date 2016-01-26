@@ -21,7 +21,7 @@
 <% @idsForPlaylist.push(inc.youtube_id) %>
 
 <tr>
-  <td><img src="http://img.youtube.com/vi/<%=inc.youtube_id%>/mqdefault.jpg" height="90"></td>
+  <td><img src="{{http://img.youtube.com/vi/<%=inc.youtube_id%>/mqdefault.jpg}}" height="90"></td>
   <td><li><%= inc.title %></td>
   <td><%= @all_accounts.find(inc.account_id).user_name %> </li></td>
   <td>
@@ -34,7 +34,7 @@
 <% end %>
 </ol></table></div>
 <p></p><p>
-    <form action="/songs/search/<%= @random %>">
+    <form action="/songs/spotifysearch/<%= @random %>">
       <input type="submit" value="Add Song to Playlist" class="btn btn-default">
     </form>
 

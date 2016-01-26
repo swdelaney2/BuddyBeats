@@ -40,8 +40,14 @@ class PlaylistsController < ApplicationController
       session[:playlist_owner] = @playlist.account_id
       session[:quantity] = @playlist.quantity
       session[:playlist_id] = @playlist.id
+      session[:platform] = @playlist.platform
+      if @playlist.platform == 'Spotify'
+        redirect_to '/songs/spotifyshow'
+      else
+        redirect_to '/songs/show'
+      end
 
-      redirect_to '/songs/show'
+
       # render json: @playlist, status: :ok
     else
       render json: @playlist.errors, status: :unprocessable_entity
@@ -97,7 +103,7 @@ class PlaylistsController < ApplicationController
 
   private
     def playlist_params
-      params.require(:playlist).permit(:title, :description, :public, :quantity, :account_id, :random_hex)
+      params.require(:playlist).permit(:title, :description, :public, :platform, :quantity, :account_id, :random_hex)
     end
 
 

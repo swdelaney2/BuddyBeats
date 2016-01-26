@@ -4,6 +4,7 @@ class CreatePlaylists < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.boolean :public
+      t.string :platform
       t.integer :quantity
       t.integer :account_id
       t.string :random_hex

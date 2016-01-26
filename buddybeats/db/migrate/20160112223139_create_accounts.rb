@@ -5,6 +5,9 @@ class CreateAccounts < ActiveRecord::Migration
       t.string :user_email, uniqueness: true
       t.string :password_digest
       t.boolean :is_admin
+      t.string :auth_token
+      t.string :password_reset_token
+      t.datetime :password_reset_sent_at
 
       t.timestamps null: false
     end
