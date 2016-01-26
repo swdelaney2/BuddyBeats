@@ -13,18 +13,33 @@
     <%= inc.number_field :quantity, in: 1.0..10.0 %></p>
 
 </div>
+    <table>
+      <tr><td><strong>Platform</strong></td><td></td></tr>
+      <tr><td></td><td>
 
-    <p><%= inc.radio_button :platform, "YouTube" %>
-    <%= inc.label :platform_youtube, "YouTube" %></p>
+        <p><%= inc.radio_button :platform, "YouTube" %>
+        <%= inc.label :platform_youtube, "YouTube" %></p>
 
-    <p><%= inc.radio_button :platform, "Spotify" %>
-    <%= inc.label :platform_spotify, "Spotify" %></p>
+        <p><%= inc.radio_button :platform, "Spotify" %>
+        <%= inc.label :platform_spotify, "Spotify" %></p>
 
-    <p><%= inc.radio_button :public, true %>
-    <%= inc.label :public_true, "Public" %></p>
+      </td></tr>
+      <tr><td><strong>Listing</strong></td><td></td></tr>
+      <tr><td></td><td>
 
-    <p><%= inc.radio_button :public, false %>
-    <%= inc.label :public_false, "Private" %></p>
+        <p><%= inc.radio_button :public, true %>
+        <%= inc.label :public_true, "Public" %></p>
+
+        <p><%= inc.radio_button :public, false %>
+        <%= inc.label :public_false, "Private" %></p>
+
+      </td></tr>
+
+    </table>
+
+
+
+
 
     <%= inc.hidden_field :account_id, :value => @current_account.id %>
     <%= inc.hidden_field :random_hex, :value => SecureRandom.hex(5) %>

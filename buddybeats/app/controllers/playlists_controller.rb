@@ -1,6 +1,6 @@
 class PlaylistsController < ApplicationController
 
-  before_action :authorize
+  before_action :authorize, except: :about
 
   def index
     @playlists = Playlist.all
