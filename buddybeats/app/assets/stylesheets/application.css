@@ -132,3 +132,17 @@ body .ui-tooltip {
   text-align: center;
   /*color: black;*/
 }
+
+#login-small {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  #login {
+    display: none; }
+
+  #login-small {
+    display: block;
+    clear: both;
+    float: left;
+     } }
