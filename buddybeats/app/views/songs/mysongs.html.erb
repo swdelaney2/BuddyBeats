@@ -16,7 +16,13 @@
 <% @idsForPlaylist.push(inc.youtube_id) %>
 
 <tr>
-<td><img src="http://img.youtube.com/vi/<%=inc.youtube_id%>/mqdefault.jpg" height="90"></td>
+<td>
+<% if inc.spotify_img %>
+<img src="<%= inc.spotify_img %>" height="90">
+<% else %>
+<img src="http://img.youtube.com/vi/<%=inc.youtube_id%>/mqdefault.jpg" height="90">
+<% end %>
+</td>
 <td><li><%= inc.title %></td>
 <td><%= inc.created_at.strftime("%m/%d/%Y") %></td>
 <td><%= link_to image_tag('delete-icon2.png'), song_path(inc),
