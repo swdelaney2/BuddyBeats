@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   get 'songs/spotifysearch/:random_hex', to: 'songs#spotifysearch'
   get '/songs/spotifysearch', to: 'songs#spotifysearch'
 
-
   get '/about', to: 'playlists#about'
   get 'playlists/create', to: 'playlists#create'
   get 'playlists/mylists', to: 'playlists#mylists'
@@ -32,7 +31,6 @@ Rails.application.routes.draw do
   post '/users', to: 'accounts#create'
 
   resources :password_resets
-
   resources :playlists
   resources :accounts, except: :destroy
   resources :songs
