@@ -88,9 +88,13 @@ class PlaylistsController < ApplicationController
 
   def destroy
     @playlist = Playlist.find(params[:id])
+    if @playlist.account_id == @current_account.id
     @playlist.destroy
 
     redirect_to '/playlists/mylists'
+  else
+    redirect_to '/hacker'
+  end
   end
 
   def edit

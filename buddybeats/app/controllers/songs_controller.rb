@@ -18,9 +18,12 @@ class SongsController < ApplicationController
 
   def destroy
     @song = Song.find(params[:id])
+    if @song.account_id == @current_account.id
     @song.destroy
-
     redirect_to :back
+  else
+    redirect_to '/hacker'
+  end
   end
 
   def edit
