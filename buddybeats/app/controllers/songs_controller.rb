@@ -5,7 +5,11 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     if @song.save
-      redirect_to '/songs/show'
+      if @song.spotify_id
+        redirect_to '/songs/spotifyshow'
+      else
+        redirect_to '/songs/show'
+      end
       # render json: @song, status: :created
     else
       render json: @song.errors, status: :unprocessable_entity
@@ -98,6 +102,6 @@ class SongsController < ApplicationController
 
   private
     def song_params
-      params.require(:song).permit(:title, :youtube_id, :spotify_id, :playlist_id, :playlist_hex, :account_id)
+      params.require(:song).permit(:title, :youtube_id, :spotify_img, :spotify_id, :playlist_id, :playlist_hex, :account_id)
     end
 end

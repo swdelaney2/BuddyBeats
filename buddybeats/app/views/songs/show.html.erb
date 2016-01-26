@@ -7,7 +7,9 @@
 <input type="text" name="playlist_url_share" value="http://localhost:3000/playlists/<%= @random %>" size="40" readonly="readonly" onclick="this.select()">
 
 <%= @idsForPlaylist %>
-<div id="fullSongList">  <ol>
+<div id="fullSongList">
+  <div class="table-responsive">
+  <ol>
 <table class="table table-hover">
 <tr>
   <td></td>
@@ -32,7 +34,9 @@
 </tr>
 
 <% end %>
-</ol></table></div>
+</ol></table>
+</div>
+</div>
 <p></p><p>
     <form action="/songs/search/<%= @random %>">
       <input type="submit" value="Add Song to Playlist" class="btn btn-default">

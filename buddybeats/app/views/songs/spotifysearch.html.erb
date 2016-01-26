@@ -27,6 +27,7 @@
         <img src={{= album.images[1].url }}>
         <div class="caption">
           <h3>{{= artists[0].name }} - {{= name }}</h3>
+          <p><a href="http://play.spotify.com/track/{{= id }}" target="_blank">Preview on Spotify</p>
 
 
           <form class="new_song" id="new_song" action="/songs" method="post">
@@ -34,6 +35,8 @@
           <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
 
           <input type="hidden" name="song[title]" id="song_title" value="{{= artists[0].name }} - {{= name }}">
+
+          <input type="hidden" name="song[spotify_img]" id="song_spotify_img" value="{{= album.images[1].url }}">
 
           <input type="hidden" name="song[spotify_id]" id="song_spotify_id" value="{{= id }}">
 

@@ -7,7 +7,9 @@
 <input type="text" name="playlist_url_share" value="http://localhost:3000/playlists/<%= @random %>" size="40" readonly="readonly" onclick="this.select()">
 
 <%= @idsForPlaylist %>
-<div id="fullSongList">  <ol>
+<div id="fullSongList">
+  <div class="table-responsive">
+    <ol>
 <table class="table table-hover">
 <tr>
   <td></td>
@@ -18,10 +20,10 @@
 
 <% @idsForPlaylist = [] %>
 <% @songs.each do |inc| %>
-<% @idsForPlaylist.push(inc.youtube_id) %>
+<% @idsForPlaylist.push(inc.spotify_id) %>
 
 <tr>
-  <td><img src="{{http://img.youtube.com/vi/<%=inc.youtube_id%>/mqdefault.jpg}}" height="90"></td>
+  <td><img src="<%=inc.spotify_img%>" height="90"></td>
   <td><li><%= inc.title %></td>
   <td><%= @all_accounts.find(inc.account_id).user_name %> </li></td>
   <td>
@@ -32,7 +34,9 @@
 </tr>
 
 <% end %>
-</ol></table></div>
+</ol></table>
+</div>
+</div>
 <p></p><p>
     <form action="/songs/spotifysearch/<%= @random %>">
       <input type="submit" value="Add Song to Playlist" class="btn btn-default">
@@ -41,7 +45,7 @@
 <% @formattedIDS = @idsForPlaylist.join(",") %>
 
 <script type="text/javascript">
-$( "#playlistLink" ).append( "<em>(<%= @idsForPlaylist.length %> songs)</em><p><a href='http://www.youtube.com/watch_videos?video_ids=<%= @formattedIDS %>' target='_blank'>Playlist Link</a>" );
+$( "#playlistLink" ).append( "<em>(<%= @idsForPlaylist.length %> songs)</em><p><a href='https://play.spotify.com/trackset/BuddyBeats/<%= @formattedIDS %>' target='_blank'>Play in Spotify (Web Player)</a>")
 </script>
 
 <% if !@owner %>
