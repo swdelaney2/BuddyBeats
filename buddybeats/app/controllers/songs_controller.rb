@@ -17,12 +17,8 @@ class SongsController < ApplicationController
 
   def destroy
     @song = Song.find(params[:id])
-    if @song.account_id == @current_account.id
-      @song.destroy
-      redirect_to :back
-    else
-      redirect_to '/hacker'
-    end
+    @song.destroy
+    redirect_to :back
   end
 
   def edit
@@ -38,11 +34,10 @@ class SongsController < ApplicationController
     if @current_account.id == session[:playlist_owner]
       @song = Song.new
       # limit others to only add as many songs as the owner designated
-    elsif
-      @songCount = Song.where(playlist_id: session[:id], account_id: @current_account.id).count < session[:quantity]
+    elsif @songCount = Song.where(playlist_id: session[:playlist_id], account_id: @current_account.id).count < session[:quantity]
       @song = Song.new
     else
-      render plain: "Sorry, dude. You added too many songs."
+      redirect_to :back, notice: "Sorry, you have reached the limit of song additions as specified by the playlist owner."
     end
   end
 
