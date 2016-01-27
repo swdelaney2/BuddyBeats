@@ -27,7 +27,7 @@
 
         <% @songs.each do |inc| %>
         <tr>
-          <td><img src="http://img.youtube.com/vi/<%=inc.youtube_id%>/mqdefault.jpg" height="90"></td>
+          <td><a href="http://www.youtube.com/watch?v=<%=inc.youtube_id%>" target="_blank"><img src="http://img.youtube.com/vi/<%=inc.youtube_id%>/mqdefault.jpg" height="90"></a></td>
           <td></td>
           <td><li><%= inc.title %></td>
           <td><%= @all_accounts.find(inc.account_id).user_name %> </li></td>

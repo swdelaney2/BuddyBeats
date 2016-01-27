@@ -25,7 +25,7 @@
         </tr>
         <% @songs.each do |inc| %>
         <tr>
-          <td><img src="<%=inc.spotify_img%>" height="90"></td>
+          <td><a href="http://play.spotify.com/track/<%=inc.spotify_id%>" target="_blank"><img src="<%=inc.spotify_img%>" height="90"></a></td>
           <td></td>
           <td><li><%= inc.title %></td>
           <td><%= @all_accounts.find(inc.account_id).user_name %> </li></td>
