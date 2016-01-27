@@ -1,21 +1,18 @@
-<h1>Playlists#edit</h1>
-
-<h1>Editing playlist</h1>
+<h1>Editing Playlist</h1>
 
 <%= form_for :playlist, url: playlist_path(@playlist), method: :patch do |inc| %>
-
   <% if @playlist.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@playlist.errors.count, "error") %> prohibited
-        this playlist from being saved:
-      </h2>
-      <ul>
-        <% @playlist.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+  <div id="error_explanation">
+    <h2><%= pluralize(@playlist.errors.count, "error") %> prohibited
+        this playlist from being saved:</h2>
+
+    <ul>
+      <% @playlist.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+
+  </div>
   <% end %>
 
   <p>
@@ -28,20 +25,31 @@
     <%= inc.text_area :description %>
   </p>
 
+  <table>
+    <tr>
+      <td><strong>Listing</strong></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><%= inc.radio_button :public, true %>
+          <%= inc.label :public_true, "Public" %></p>
 
-<%= inc.radio_button :public, true %>
-<%= inc.label :public_true, "Public" %>
-  <p>
-<%= inc.radio_button :public, false %>
-<%= inc.label :public_false, "Private" %>
-  <p>
-<%= inc.label :quantity %>
-<%= inc.number_field :quantity, in: 1.0..10.0 %>
+        <p><%= inc.radio_button :public, false %>
+          <%= inc.label :public_false, "Private" %></p>
+        </td>
+      </tr>
+    </table>
 
   <p>
+    <%= inc.label :quantity %>
+    <%= inc.number_field :quantity, in: 1.0..10.0 %>
+  <p>
+
     <%= inc.submit "Update", :class => 'btn btn-default' %>
   </p>
 
 <% end %>
 
-<%= link_to 'Back', playlists_path %>
+<%= link_to 'Back', playlists_mylists_path %>

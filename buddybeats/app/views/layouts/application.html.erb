@@ -1,46 +1,51 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>BuddyBeats</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
+
   <header>
       <a href=/playlists><img src=/images/buddybeatsgray.png height="100px" id="buddy_logo"></a>
   </header>
+
   <div class="container">
     <div class="row">
       <div id="allContent">
-
-      <div class="center-block">
-        <div id=notice><strong><%= notice %></strong></div>
-
-
-<%= yield %>
-</div>
-</div>
-</div>
-</div>
+        <div class="center-block">
+          <div id=notice>
+            <strong><%= notice %></strong>
+          </div>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
+
 <div class="container">
   <div class="row">
     <div class="center-block">
-<footer>
-<ul class="text-center">
-  <li class="navbar"><a href=/playlists>Home</a></li>
-  <li class="navbar"><a href=/about>About</a></li>
-    <li class="navbar"><a href=/playlists/all>Browse Playlists</a></li>
-  <li class="navbar"><a href=/playlists/mylists>My Playlists</a></li>
-    <li class="navbar"><a href=/songs/mysongs>My Songs</a></li>
+      <footer>
+        <ul class="text-center">
+          <li class="navbar"><a href=/playlists>Home</a></li>
+          <li class="navbar"><a href=/about>About</a></li>
+          <li class="navbar"><a href=/playlists/all>Browse Playlists</a></li>
+          <li class="navbar"><a href=/playlists/mylists>My Playlists</a></li>
+          <li class="navbar"><a href=/songs/mysongs>My Songs</a></li>
+          <li class="navbar"><a href=/sessions/destroy>Log-out</a></li>
+        </ul>
 
-    <li class="navbar"><a href=/sessions/destroy>Log-out</a></li>
-</ul>
-<p class="text-center"><%= @playlist_count %> playlists and <%= @song_count %> songs added since January 2016</p>
-</footer>
+        <p class="text-center"><%= @playlist_count %> playlists and <%= @song_count %> songs added since January 2016</p>
+      </footer>
+    </div>
+  </div>
 </div>
-</div>
-</div>
+
 </html>
