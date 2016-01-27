@@ -1,36 +1,24 @@
-<h1>Songs#edit</h1>
+<!-- Pass YouTube API Key to AJAX -->
+<script>
+var youTubeENV = "<%= ENV['YOUTUBE_API_KEY'] %>"
+</script>
 
-
-<h1>Search</h1>
-
-<% @random = params[:random_hex] %>
-<% @playlist_id = session[:playlist_id] %>
-<!-- <%= @song.id %> -->
-
+<h1>Replace Song</h1>
 
 <form id="search_form" method="get">
   <input type="text" name="keyword" class="searchbox" placeholder="Search YouTube"></input>
   <button type="submit" value="submit">Submit</button>
 </form>
 
-
-
-<!-- <script>
-searchYouTube("britney")
-</script> -->
 <div class="container-fluid">
   <div class="row">
-<div id=searchResults>
-
+    <div id=searchResults>
+    </div>
+  </div>
 </div>
-</div>
-</div>
 
-
-<!-- <div id='content'></div> -->
-
+<!-- Underscore template -->
 <script type='text/template' id='search_template'>
-
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <img src="{{= snippet.thumbnails.high.url}}">
@@ -40,25 +28,21 @@ searchYouTube("britney")
 
         <form action="/songs/<%= @song.id %>" accept-charset="UTF-8" method="post">
 
-        <input type="hidden" name="_method" value="patch">
+          <input type="hidden" name="_method" value="patch">
 
-        <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
+          <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
 
-        <input type="hidden" name="song[title]" id="song_title" value="{{= snippet.title }}">
+          <input type="hidden" name="song[title]" id="song_title" value="{{= snippet.title }}">
 
-        <input type="hidden" name="song[youtube_id]" id="song_youtube_id" value={{= id.videoId }}>
+          <input type="hidden" name="song[youtube_id]" id="song_youtube_id" value={{= id.videoId }}>
 
-        <input type="submit" name="commit" value="Save Song" />
+          <input type="submit" name="commit" value="Save Song" />
 
         </form>
-
 
         </div>
       </div>
     </div>
 </script>
-<hr>
 
-
-
-<%= link_to 'Back', songs_path %>
+<p></p><p><%= link_to 'Back', songs_mysongs_path %>

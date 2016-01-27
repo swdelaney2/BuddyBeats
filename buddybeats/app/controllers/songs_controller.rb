@@ -23,6 +23,7 @@ class SongsController < ApplicationController
 
   def edit
     @song = Song.find(params[:id])
+    @playlist_id = session[:playlist_id]
   end
 
   def new
@@ -30,6 +31,8 @@ class SongsController < ApplicationController
   end
 
   def search
+    @playlist_hex = params[:random_hex]
+    @playlist_id = session[:playlist_id]
     # allow owner to add as many as they like
     if @current_account.id == session[:playlist_owner]
       @song = Song.new
@@ -43,10 +46,29 @@ class SongsController < ApplicationController
 
   def show
     all_accounts
+    @playlist_title = session[:playlist_title]
+    @playlist_description = session[:playlist_description]
+    @playlist_hex = session[:playlist_hex]
+
+    # All of the code related to YouTube or Spotify IDs serves to create dynamic links to load the playlists on said platforms.
     @songs = []
+    @songYouTubeIDS = []
+    @songSpotifyIDS = []
     Song.where(playlist_hex: session[:playlist_hex]).find_each do |inc|
       @songs.push(inc)
     end
+
+    Song.where(playlist_hex: session[:playlist_hex]).where.not(youtube_id: nil).find_each do |inc|
+      @songYouTubeIDS.push(inc.youtube_id)
+    end
+
+    Song.where(playlist_hex: session[:playlist_hex]).where.not(spotify_id: nil).find_each do |inc|
+      @songSpotifyIDS.push(inc.spotify_id)
+    end
+
+    @formattedYouTubeIDS = @songYouTubeIDS.join(",")
+    @formattedSpotifyIDS = @songSpotifyIDS.join(",")
+
     if @current_account.id == session[:playlist_owner]
       @owner = true
     end
@@ -63,9 +85,22 @@ class SongsController < ApplicationController
 
   def mysongs
     @songs = []
+    @songYouTubeIDS = []
+    @songSpotifyIDS = []
     Song.where(account_id: @current_account.id).find_each do |inc|
       @songs.push(inc)
     end
+
+    Song.where(account_id: @current_account.id).where.not(youtube_id: nil).find_each do |inc|
+      @songYouTubeIDS.push(inc.youtube_id)
+    end
+
+    Song.where(account_id: @current_account.id).where.not(spotify_id: nil).find_each do |inc|
+      @songSpotifyIDS.push(inc.spotify_id)
+    end
+
+    @formattedYouTubeIDS = @songYouTubeIDS.join(",")
+    @formattedSpotifyIDS = @songSpotifyIDS.join(",")
   end
 
   def update
