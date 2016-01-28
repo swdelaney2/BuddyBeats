@@ -47,8 +47,9 @@ While I completed everything I intended to with this project (and more, in fact 
  * Use OAuth with Facebook, Google, Spotify, etc.
  * Brainstorm a solution to make thumbnails on the search page a fixed height, in order to produce a clean display of the grid -- while still integrating responsive design.
 
-## Unsolved Problem
+## Unsolved Problems
  * When YouTube titles contain a double quotation mark ("), any characters after that mark are omitted. This error was discovered the day I deployed and I could not figure out where in my code to place the string replacement to fix it.
+ * The songs/show pages contain a small amount of inline scripts, which I would rather place elsewhere.
 
 ## Installation Instructions
 
