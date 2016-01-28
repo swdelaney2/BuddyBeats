@@ -16,3 +16,4 @@
 //= require_tree .
 //= require sweetalert
 //= require sweet-alert-confirm
+//= require execjs
