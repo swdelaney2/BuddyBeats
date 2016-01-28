@@ -4,7 +4,12 @@ BuddyBeats is an application to help you make YouTube playlists with your friend
 
 ## Screenshot
 
-Coming soon!
+![Homepage](http://i.imgur.com/qY455qJ.png)
+
+![Playlist](http://i.imgur.com/V67ip8S.png)
+
+![Search](http://i.imgur.com/Tq74bpP.png)
+
 
 ## Technologies Used
  * Active Record
