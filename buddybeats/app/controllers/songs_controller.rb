@@ -26,6 +26,10 @@ class SongsController < ApplicationController
     @playlist_id = session[:playlist_id]
   end
 
+  def spotifyedit
+    edit
+  end
+
   def new
     @song = Song.new
   end

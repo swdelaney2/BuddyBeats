@@ -1,0 +1,44 @@
+<h1>Search Spotify</h1>
+
+<form id="spotify_search_form" method="get">
+  <input type="text" name="keyword" class="searchbox" placeholder="Search Spotify"></input>
+  <button type="submit" value="submit" class="btn btn-default">Submit</button>
+</form>
+
+<div class="container-fluid">
+  <div class="row">
+    <div id=searchResults>
+    </div>
+  </div>
+</div>
+
+<script type='text/template' id='spotify_search_template'>
+
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="{{= album.images[1].url }}" class="img-responsive">
+        <div class="caption">
+          <h3>{{= artists[0].name }} - {{= name }}</h3>
+          <p><a href="http://play.spotify.com/track/{{= id }}" target="_blank">Preview on Spotify</a></p>
+
+
+          <form action="/songs/<%= @song.id %>" accept-charset="UTF-8" method="post">
+
+            <input type="hidden" name="_method" value="patch">
+
+            <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
+
+            <input type="hidden" name="song[title]" id="song_title" value="{{= artists[0].name }} - {{= name }}">
+
+            <input type="hidden" name="song[spotify_img]" id="song_spotify_img" value="{{= album.images[1].url }}">
+
+            <input type="hidden" name="song[spotify_id]" id="song_spotify_id" value="{{= id }}">
+
+            <input type="submit" name="commit" value="Save Song" class="btn btn-primary"/>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+</script>

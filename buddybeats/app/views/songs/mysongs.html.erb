@@ -41,9 +41,23 @@
         <a href=/playlists/<%= inc.playlist_hex %>>View</a>
       </td>
     <td><%= inc.created_at.strftime("%m/%d/%Y") %></td>
-    <td><%= link_to image_tag('delete-icon2.png'), song_path(inc),
+    <td>
+
+      <% if inc.spotify_img %>
+      <%= link_to image_tag('delete-icon2.png'), song_path(inc),
               method: :delete,
-              data: { "sweet-alert-confirm": "Are you sure you want to delete this song?" } %> &nbsp; <%= link_to image_tag('edit-icon3.png'), edit_song_path(inc) %></li></td>
+              data: { "sweet-alert-confirm": "Are you sure you want to delete this song?" } %> &nbsp; <%= link_to image_tag('edit-icon3.png'), edit_spotify_path(inc) %></li>
+      <% else %>
+      <%= link_to image_tag('delete-icon2.png'), song_path(inc),
+              method: :delete,
+              data: { "sweet-alert-confirm": "Are you sure you want to delete this song?" } %> &nbsp; <%= link_to image_tag('edit-icon3.png'), edit_song_path(inc) %></li>
+      <% end %>
+
+
+
+
+
+            </td>
   </tr>
   <% end %>
 </table>

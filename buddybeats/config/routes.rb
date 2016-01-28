@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'songs/search/:random_hex', to: 'songs#search'
   get 'songs/spotifysearch/:random_hex', to: 'songs#spotifysearch'
   get '/songs/spotifysearch', to: 'songs#spotifysearch'
+  get '/songs/:id/spotifyedit', to: 'songs#spotifyedit', as: 'edit_spotify'
 
   get '/about', to: 'playlists#about'
   get 'playlists/create', to: 'playlists#create'
