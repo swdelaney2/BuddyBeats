@@ -7,7 +7,9 @@
 <h1><%= @playlist_title %></h1>
 <em><%= @playlist_description %></em>
 
-<em>(<%= @songYouTubeIDS.length %> songs)</em><p><a href='http://www.youtube.com/watch_videos?video_ids=<%= @formattedYouTubeIDS %>' target='_blank'>Playlist Link</a>
+<div id=playlistLink>
+  <em>(<%= @songYouTubeIDS.length %> songs)</em><p><a href='http://www.youtube.com/watch_videos?video_ids=<%= @formattedYouTubeIDS %>' target='_blank'>Playlist Link</a>
+</div>
 
 <p>
   <input type="text" name="playlist_url_share" value="http://localhost:3000/playlists/<%= @playlist_hex %>" size="40" readonly="readonly" onclick="this.select()">
@@ -53,5 +55,6 @@
 <% if @songs == [] %>
   <script type="text/javascript">
   $('#fullSongList').hide();
+  $('#playlistLink').hide();
   </script>
 <% end %>

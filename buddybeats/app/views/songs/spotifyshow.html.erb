@@ -6,9 +6,11 @@
 
 <h1><%= @playlist_title = session[:playlist_title] %></h1>
 <em><%= @playlist_description = session[:playlist_description] %></em>
-<p>
-  <em>(<%= @songSpotifyIDS.length %> songs)</em><p><a href='https://play.spotify.com/trackset/BuddyBeats/<%= @formattedSpotifyIDS %>' target='_blank'>Play in Spotify (Web Player)</a>
-</p>
+<div id=playlistLink>
+  <p>
+    <em>(<%= @songSpotifyIDS.length %> songs)</em><p><a href='https://play.spotify.com/trackset/BuddyBeats/<%= @formattedSpotifyIDS %>' target='_blank'>Play in Spotify (Web Player)</a>
+  </p>
+</div>
 
 <input type="text" name="playlist_url_share" value="http://localhost:3000/playlists/<%= @playlist_hex %>" size="40" readonly="readonly" onclick="this.select()">
 
@@ -51,5 +53,6 @@
 <% if @songs == [] %>
   <script type="text/javascript">
   $('#fullSongList').hide();
+  $('#playlistLink').hide();
   </script>
 <% end %>
