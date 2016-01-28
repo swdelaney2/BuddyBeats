@@ -157,6 +157,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   dotenv-rails
+  execjs
   jbuilder (~> 2.0)
   jquery-rails
   pg (~> 0.15)
